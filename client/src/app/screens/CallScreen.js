@@ -28,24 +28,24 @@ function CallScreen() {
                     <CallOther />
                 )}
                 <div className="flex relative z-10 flex-col w-full mx-auto max-w-full md:flex-row h-screen">
-                    <div className="flex-grow m-3 self-center bg-gray-900 rounded-lg relative">
-                        {stream && (
-                            <video playsInline muted autoPlay className="border-2 h-full object-cover relative z-20 border-gray-600 w-full rounded-lg" ref={myVideo} />
-                        )}
-                        {!myVideo.current?.srcObject?.getVideoTracks()[0].enabled && myVideo.current && (
-                          <AccountCircleIcon className={"text-white absolute z-40 top-1/2 left-1/2 avaterIcon"} />  
-                        )}
-                        <p className="absolute z-30 bottom-2 left-4 font-semibold text-white capitalize">{name || "You"}</p>
-                    </div>
                     {callAccepted && !callEnded && (
-                        <div className="self-center flex-grow m-3 bg-gray-900 rounded-lg relative">
-                            <video playsInline autoPlay className="border-2 h-full object-cover relative z-20 border-gray-600 w-full rounded-lg" ref={userVideo} />
+                        <div className="videoWrapper self-center flex-grow m-3 bg-gray-900 rounded-lg relative">
+                            <video playsInline autoPlay className="border-2 object-cover relative z-20 border-gray-600 w-full h-full rounded-lg" ref={userVideo} />
                             {!userVideo.current?.srcObject?.getVideoTracks()[0].enabled  && userVideo.current && (
                                 <AccountCircleIcon className={"text-white absolute z-40 top-1/2 left-1/2 avaterIcon"} />
                             )}
                             <p className="absolute z-30 bottom-2 left-4 font-semibold text-white capitalize">{call.name || 'Other'}</p>
                         </div>
                     )}
+                    <div className="videoWrapper flex-grow m-3 self-center bg-gray-900 rounded-lg relative">
+                        {stream && (
+                            <video playsInline muted autoPlay className="border-2 object-cover relative z-20 border-gray-600 w-full h-full rounded-lg" ref={myVideo} />
+                        )}
+                        {!myVideo.current?.srcObject?.getVideoTracks()[0].enabled && myVideo.current && (
+                          <AccountCircleIcon className={"text-white absolute z-40 top-1/2 left-1/2 avaterIcon"} />  
+                        )}
+                        <p className="absolute z-30 bottom-2 left-4 font-semibold text-white capitalize">{name || "You"}</p>
+                    </div>
                 </div>
                 <BottomBar />
             </div>

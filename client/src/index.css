@@ -27,3 +27,12 @@ code {
   -ms-transform: translate(-50%, -50%);
   -o-transform: translate(-50%, -50%);
 }
+.videoWrapper {
+  max-height: 100%;
+  overflow: hidden;
+}
+@media (max-width: 768px) {
+  .videoWrapper {
+    height: 50%;
+  }
+}

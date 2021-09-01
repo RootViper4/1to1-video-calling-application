@@ -12,7 +12,7 @@ function BottomBar() {
     const { playStop, leaveCall, camera, mute, muteUnmute } = useContext(SocketContext);
 
     return (
-        <div className="z-50 absolute bottom-3 space-x-6 w-full left-0 p-8 flex items-center justify-center">
+        <div className="z-50 fixed bottom-3 space-x-6 w-full left-0 p-8 flex items-center justify-center">
             <IconButton className={styles.btn} onClick={playStop}>
                 {!camera ? (
                     <VideocamIcon />
